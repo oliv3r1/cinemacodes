@@ -1,0 +1,39 @@
+/*.omateemavari {
+  font-size: 20rem;
+  color: aqua;
+}*/
+
+@tailwind base;
+
+@layer base {
+  h1 {
+    @apply text-2xl text-white;
+  }
+  h2 {
+    @apply text-2xl text-white;
+  }
+  h3 {
+    @apply text-sm text-white;
+  }
+  a {
+    @apply text-sm text-white;
+  }
+  p {
+    @apply text-xs text-white;
+  }
+}
+
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .navi {
+    @apply hover:text-os-lightblue;
+  }
+  .pohja {
+    @apply bg-os-grey text-os-white p-5 flex-1;
+  }
+  .boxes {
+    @apply rounded-lg m-5;
+  }
+}
