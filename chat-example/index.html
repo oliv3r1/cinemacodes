@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>chatti</title>
+    <link rel="stylesheet" href="./output.css" />
+  </head>
+  <body class="bg-green-400">
+    <div>
+      <input type="text" id="nickname-input" placeholder="Aseta Käyttäjänimi" />
+      <select id="room-selector">
+        <option value="general">Yleinen</option>
+        <option value="programming">Elokuvat</option>
+        <option value="movies">Info</option>
+      </select>
+      <button onclick="setNicknameAndJoinRoom()">
+        Aseta Käyttäjänimi ja liity huoneeseen
+      </button>
+    </div>
+
+    <div id="edit-nickname-container">
+      <span id="displayed-nickname"></span>
+    </div>
+    <ul id="messages"></ul>
+    <form id="form" action="">
+      <input id="m" autocomplete="off" /><button onclick="sendMessage()">
+        Lähetä
+      </button>
+    </form>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+      var socket = io();
+      var messages = document.getElementById("messages");
+      var form = document.getElementById("form");
+      var input = document.getElementById("m");
+      var roomSelector = document.getElementById("room-selector"); // Updated ID
+      var nicknameInput = document.getElementById("nickname-input"); // Updated ID
+
+      var nickname = "";
+      var room = "general";
+
+      function setNicknameAndJoinRoom() {
+        const nicknameInput = document.getElementById("nickname-input");
+        nickname = nicknameInput.value;
+        nicknameInput.value = "";
+
+        room = roomSelector.value;
+        document.getElementById("edit-nickname-container").style.display =
+          "none";
+
+        document.getElementById("room-selector").disabled = true;
+        document.getElementById("edit-nickname-container").style.display =
+          "block";
+        document.getElementById("displayed-nickname").textContent = nickname;
+
+        socket.emit("user joined", { nickname, room });
+      }
+
+      function setNickname() {
+        const nicknameInput = document.getElementById("edit-nickname-input");
+        nickname = nicknameInput.value;
+
+        nicknameInput.value = "";
+
+        document.getElementById("nickname-container").style.display = "none";
+        document.getElementById("edit-nickname-container").style.display =
+          "block";
+        document.getElementById("displayed-nickname").textContent = nickname;
+      }
+
+      function editNickname() {
+        document.getElementById("nickname-container").style.display = "block";
+        document.getElementById("edit-nickname-container").style.display =
+          "none";
+      }
+
+      function sendMessage() {
+        const messageInput = document.getElementById("m");
+        const message = messageInput.value;
+
+        socket.emit("chat message", { message, nickname, room });
+
+        messageInput.value = "";
+      }
+
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        if (input.value) {
+          socket.emit("chat message", input.value);
+          input.value = "";
+        }
+      });
+
+      socket.on("chat message", function (msg) {
+        var item = document.createElement("li");
+
+        if (msg.nickname) {
+          item.textContent = `${msg.nickname}: ${msg.message}`;
+        } else {
+          item.textContent = msg.message;
+        }
+
+        messages.appendChild(item);
+        window.scrollTo(0, document.body.scrollHeight);
+      });
+    </script>
+  </body>
+</html>
