@@ -11,10 +11,8 @@ app.get("/", (req, res) => {
 
 io.on("connection", (socket) => {
   socket.on("user joined", ({ nickname, room }) => {
-    // Join the specified room
     socket.join(room);
 
-    // Broadcast a system message to the room
     socket.to(room).emit("chat message", {
       message: `${nickname} has joined the room`,
       room: room,
@@ -22,11 +20,8 @@ io.on("connection", (socket) => {
   });
 
   socket.on("chat message", ({ message, nickname, room }) => {
-    // Broadcast the message to the specific room
     io.to(room).emit("chat message", { message, nickname, room });
   });
-
-  // Rest of your code remains the same...
 });
 
 server.listen(3000, () => {
