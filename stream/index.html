@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.dashjs.org/latest/dash.all.min.js"></script>
+    <title>My Example DASH Player</title>
+    <style>
+      video {
+        width: 1280px;
+        height: 720px;
+      }
+    </style>
+  </head>
+  <body>
+    <video data-dashjs-player controls>
+      <source src="my_video_manifest.mpd" type="application/dash+xml" />
+      <!-- Fallback, enable after making sure that mpd file works, <source src="example-vid.mp4"> -->
+      Your browser does not support the video tag.
+    </video>
+  </body>
+</html>
