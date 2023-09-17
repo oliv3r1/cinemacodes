@@ -8,6 +8,11 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/flowbite.min.css"
       rel="stylesheet"
     />
+    <link href="https://vjs.zencdn.net/8.5.2/video-js.css" rel="stylesheet" />
+    <link
+      href="https://unpkg.com/@videojs/themes@1/dist/forest/index.css"
+      rel="stylesheet"
+    />
   </head>
   <body class="bg-os-dark-black">
     <header class="font-semibold">
@@ -137,11 +142,126 @@
       </div>
     </main>
 
+    <section class="m-auto">
+      <h2 class="pt-5 mx-auto text-center w-1/2 text-3xl">Stream</h2>
+      <div class="flex justify-center py-10 mx-8">
+        <video
+          id="my-video"
+          class="video-js vjs-theme-forest"
+          height="400"
+          data-setup="{}"
+        >
+          <source
+            src="http://195.148.104.124:1935/jakelu/OS/playlist.m3u8"
+            type="application/x-mpegURL"
+          />
+
+          <p class="vjs-no-js">
+            To view this video please enable JavaScript, and consider upgrading
+            to a web browser that
+            <a href="https://videojs.com/html5-video-support/" target="_blank"
+              >supports HTML5 video</a
+            >
+          </p>
+        </video>
+      </div>
+      <div class="max-w-4xl justify-center m-auto pb-14">
+        <h2 class="text-2xl pt-5 mx-auto text-center w-1/2">Chat</h2>
+        <form class="bg-os-lightblue h-96 mx-4">
+          <label for="m" class="sr-only">Your message</label>
+          <div
+            class="flex items-center py-2 px-3 bg-os-dark-black rounded-sm dark:bg-gray-700"
+          >
+            <button
+              type="button"
+              class="inline-flex justify-center p-2 text-gray-500 rounded-lg cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600"
+            >
+              <svg
+                class="w-6 h-6"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+            </button>
+            <button
+              type="button"
+              class="p-2 text-gray-500 rounded-lg cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600"
+            >
+              <svg
+                class="w-6 h-6"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M10 18a8 8 0 100-16 8 8 0 000 16zM7 9a1 1 0 100-2 1 1 0 000 2zm7-1a1 1 0 11-2 0 1 1 0 012 0zm-.464 5.535a1 1 0 10-1.415-1.414 3 3 0 01-4.242 0 1 1 0 00-1.415 1.414 5 5 0 007.072 0z"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+            </button>
+            <textarea
+              id="m"
+              rows="1"
+              class="block mx-4 p-2.5 w-full text-sm text-gray-900 bg-white rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              placeholder="Your message..."
+            ></textarea>
+            <button
+              type="submit"
+              class="inline-flex justify-center p-2 text-blue-600 rounded-full cursor-pointer hover:bg-blue-100 dark:text-blue-500 dark:hover:bg-gray-600"
+            >
+              <svg
+                class="w-6 h-6 rotate-90"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z"
+                ></path>
+              </svg>
+            </button>
+          </div>
+
+          <div class="overflow-y-auto max-h-80">
+            <ul
+              class="bg-os-lightblue p-2 space-y-2 whitespace-normal break-words"
+              id="messages"
+            ></ul>
+          </div>
+        </form>
+      </div>
+    </section>
     <footer class="pohja">
       <div class="container mx-auto">
         <p class="text-os-white">&copy; 2023 Elokuvafestivaali</p>
       </div>
     </footer>
     <script src="js/flowbite.min.js"></script>
+    <script src="https://vjs.zencdn.net/8.5.2/video.min.js"></script>
+    <script>
+      let myPlayer = document.querySelector(".video-js");
+
+      console.log(myPlayer);
+
+      videojs(myPlayer, {
+        controls: true,
+        autoplay: false,
+        preload: "auto",
+        poster: "../dist/img/03092022_rorozoa_10.jpg",
+        liveui: true,
+        playbackRates: [0.5, 1, 1.5, 2],
+        inactivityTimeout: 0,
+        liveTracker: {
+          trackingTreshhold: 0,
+        },
+      });
+    </script>
   </body>
 </html>

@@ -1,6 +1,8 @@
 {
   "dependencies": {
-    "flowbite": "^1.8.1"
+    "express": "^4.18.2",
+    "flowbite": "^1.8.1",
+    "socket.io": "^4.7.2"
   },
   "devDependencies": {
     "tailwindcss": "^3.3.3"
