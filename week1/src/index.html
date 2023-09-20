@@ -10,7 +10,7 @@
     />
     <link href="https://vjs.zencdn.net/8.5.2/video-js.css" rel="stylesheet" />
     <link
-      href="https://unpkg.com/@videojs/themes@1/dist/forest/index.css"
+      href="https://unpkg.com/@videojs/themes@1/dist/fantasy/index.css"
       rel="stylesheet"
     />
   </head>
@@ -63,28 +63,28 @@
 
               <li>
                 <a
-                  href="#"
+                  href="#aikataulu"
                   class="block py-2 pl-3 pr-4 text-white rounded hover:text-blue-700 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
                   >Aikataulu</a
                 >
               </li>
               <li>
                 <a
-                  href="#"
+                  href="#videostream"
                   class="block py-2 pl-3 pr-4 text-white rounded hover:text-blue-700 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
                   >Live</a
                 >
               </li>
               <li>
                 <a
-                  href="#"
+                  href="../public/index.html"
                   class="block py-2 pl-3 pr-4 text-white rounded hover:text-blue-700 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
                   >Chat</a
                 >
               </li>
               <li>
                 <a
-                  href="#"
+                  href="#info"
                   class="block py-2 pl-3 pr-4 text-white rounded hover:text-blue-700 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
                   >Info</a
                 >
@@ -100,7 +100,9 @@
       ></div>
     </div>
 
-    <h2 class="text-2xl pt-5 mx-auto text-center w-1/2">Aikataulu</h2>
+    <h2 id="aikataulu" class="text-3xl pt-10 mx-auto text-center w-1/2">
+      Aikataulu
+    </h2>
 
     <main class="container mx-auto p-4 grid grid-cols-1 sm:grid-cols-3">
       <div class="boxes flex flex-col items-center bg-os-midnight-blue p-5">
@@ -111,43 +113,45 @@
             alt="Elokuvan kuva 1"
           />
         </div>
-        <h3 class="font-semibold">Elokuvan nimi 1</h3>
+        <h3 class="font-semibold text-xl">21.9.2023 KLO 15:30</h3>
 
-        <p class="mt-2">Kuvaus elokuvasta tähän...</p>
+        <p class="mt-2">Isojalan perhe on täällä taas.</p>
       </div>
 
       <div class="boxes flex flex-col items-center bg-os-midnight-blue p-5">
         <div class="ml-auto">
           <img
             class="p-2 w-auto h-auto"
-            src="../dist/img/taus.jpg"
+            src="../dist/img/pelle.png"
             alt="Elokuvan kuva 1"
           />
         </div>
-        <h3 class="font-semibold">Elokuvan nimi 1</h3>
+        <h3 class="font-semibold text-xl">31.9.2023 KLO 13:25</h3>
 
-        <p class="mt-2">Kuvaus elokuvasta tähän...</p>
+        <p class="mt-2">Pelle hermanni jälleen hassuttelemassa.</p>
       </div>
       <div class="boxes flex flex-col items-center bg-os-midnight-blue p-5">
         <div class="ml-auto">
           <img
-            class="p-2 w-auto h-auto"
+            class="p-2 w-auto m-auto"
             src="../dist/img/taus.jpg"
             alt="Elokuvan kuva 1"
           />
         </div>
-        <h3 class="font-semibold">Elokuvan nimi 1</h3>
+        <h3 class="font-semibold text-xl">3.10.2023 KLO 20:00</h3>
 
-        <p class="mt-2">Kuvaus elokuvasta tähän...</p>
+        <p class="mt-2">Kauan odotettu spede elokuva.</p>
       </div>
     </main>
 
     <section class="m-auto">
-      <h2 class="pt-5 mx-auto text-center w-1/2 text-3xl">Stream</h2>
+      <h2 id="videostream" class="pt-5 mx-auto text-center w-1/2 text-3xl">
+        Stream
+      </h2>
       <div class="flex justify-center py-10 mx-8">
         <video
           id="my-video"
-          class="video-js vjs-theme-forest"
+          class="video-js vjs-theme-fantasy"
           height="400"
           data-setup="{}"
         >
@@ -165,79 +169,65 @@
           </p>
         </video>
       </div>
-      <div class="max-w-4xl justify-center m-auto pb-14">
-        <h2 class="text-2xl pt-5 mx-auto text-center w-1/2">Chat</h2>
-        <form class="bg-os-lightblue h-96 mx-4">
-          <label for="m" class="sr-only">Your message</label>
-          <div
-            class="flex items-center py-2 px-3 bg-os-dark-black rounded-sm dark:bg-gray-700"
+    </section>
+    <section id="info" class="bg-os-lightblue dark:bg-gray-900">
+      <div
+        class="gap-16 items-center py-8 px-4 mx-auto max-w-screen-xl lg:grid lg:grid-cols-2 lg:py-16 lg:px-6"
+      >
+        <div class="font-light text-gray-500 sm:text-lg dark:text-gray-400">
+          <h2
+            class="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white"
           >
-            <button
-              type="button"
-              class="inline-flex justify-center p-2 text-gray-500 rounded-lg cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600"
-            >
-              <svg
-                class="w-6 h-6"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z"
-                  clip-rule="evenodd"
-                ></path>
-              </svg>
-            </button>
-            <button
-              type="button"
-              class="p-2 text-gray-500 rounded-lg cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600"
-            >
-              <svg
-                class="w-6 h-6"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M10 18a8 8 0 100-16 8 8 0 000 16zM7 9a1 1 0 100-2 1 1 0 000 2zm7-1a1 1 0 11-2 0 1 1 0 012 0zm-.464 5.535a1 1 0 10-1.415-1.414 3 3 0 01-4.242 0 1 1 0 00-1.415 1.414 5 5 0 007.072 0z"
-                  clip-rule="evenodd"
-                ></path>
-              </svg>
-            </button>
-            <textarea
-              id="m"
-              rows="1"
-              class="block mx-4 p-2.5 w-full text-sm text-gray-900 bg-white rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-              placeholder="Your message..."
-            ></textarea>
-            <button
-              type="submit"
-              class="inline-flex justify-center p-2 text-blue-600 rounded-full cursor-pointer hover:bg-blue-100 dark:text-blue-500 dark:hover:bg-gray-600"
-            >
-              <svg
-                class="w-6 h-6 rotate-90"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z"
-                ></path>
-              </svg>
-            </button>
-          </div>
-
-          <div class="overflow-y-auto max-h-80">
-            <ul
-              class="bg-os-lightblue p-2 space-y-2 whitespace-normal break-words"
-              id="messages"
-            ></ul>
-          </div>
-        </form>
+            Tervehdys
+          </h2>
+          <p class="mb-4 text-lg">
+            Olemme strategeja, suunnittelijoita ja kehittäjiä. Innovaattorit ja
+            ongelmanratkaisijat. Tarpeeksi pieni ollakseen yksinkertainen ja
+            nopea, mutta riittävän suuri toimittamaan haluamasi laajuuden
+            tarvitsemassasi tahdissa. Tarpeeksi pieni ollakseen yksinkertainen
+            ja nopea, mutta riittävän suuri toimittamaan haluamasi laajuuden
+            tarvitsemassasi tahdissa.
+          </p>
+        </div>
+        <div class="grid grid-cols-2 gap-4 mt-8">
+          <img
+            class="w-full rounded-lg"
+            src="../dist/img/henk1.jpg"
+            alt=" keksijä"
+          />
+          <img
+            class="mt-4 w-full lg:mt-10 rounded-lg"
+            src="../dist/img/henk2.jpg"
+            alt="Toinen keksijä"
+          />
+        </div>
       </div>
     </section>
+    <section class="m-auto">
+      <div
+        class="flex py-14 bg-[url('../dist/img/banneri.jpg')] bg-cover bg-center"
+      >
+        <div
+          class="max-w-screen-xl px-2 py-4 mx-auto text-center lg:py-6 lg:px-2"
+        >
+          <dl class="grid max-w-screen-md gap-8 mx-auto sm:grid-cols-3">
+            <div class="flex flex-col items-center justify-center">
+              <dt class="mb-2 text-3xl md:text-4xl font-extrabold">14M+</dt>
+              <dd class="font-mono text-os-dark-black">Visitors</dd>
+            </div>
+            <div class="flex flex-col items-center justify-center">
+              <dt class="mb-2 text-3xl md:text-4xl font-extrabold">20K+</dt>
+              <dd class="font-mono text-os-dark-black">Movies</dd>
+            </div>
+            <div class="flex flex-col items-center justify-center">
+              <dt class="mb-2 text-3xl md:text-4xl font-extrabold">2M</dt>
+              <dd class="font-mono text-os-dark-black">Awards</dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+    </section>
+
     <footer class="pohja">
       <div class="container mx-auto">
         <p class="text-os-white">&copy; 2023 Elokuvafestivaali</p>
@@ -254,13 +244,44 @@
         controls: true,
         autoplay: false,
         preload: "auto",
-        poster: "../dist/img/03092022_rorozoa_10.jpg",
+        poster: "../dist/img/25516.jpg",
         liveui: true,
-        playbackRates: [0.5, 1, 1.5, 2],
         inactivityTimeout: 0,
         liveTracker: {
           trackingTreshhold: 0,
         },
+      });
+    </script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const aikatauluLink = document.querySelector(".aikataulu-link");
+
+        const streamLink = document.querySelector(".videostream-link");
+        const infoLink = document.querySelector(".info-link");
+
+        aikatauluLink.addEventListener("click", function (event) {
+          event.preventDefault();
+
+          const targetElement = document.getElementById("aikataulu");
+
+          targetElement.scrollIntoView({ behavior: "smooth" });
+        });
+
+        streamLink.addEventListener("click", function (event) {
+          event.preventDefault();
+
+          const targetElement = document.getElementById("videostream");
+
+          targetElement.scrollIntoView({ behavior: "smooth" });
+        });
+
+        infoLink.addEventListener("click", function (event) {
+          event.preventDefault();
+
+          const targetElement = document.getElementById("info");
+
+          targetElement.scrollIntoView({ behavior: "smooth" });
+        });
       });
     </script>
   </body>

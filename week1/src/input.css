@@ -7,10 +7,10 @@
 
 @layer base {
   h1 {
-    @apply text-2xl text-white;
+    @apply text-2xl text-white font-mono;
   }
   h2 {
-    @apply text-2xl text-white;
+    @apply text-2xl text-white font-mono;
   }
   h3 {
     @apply text-sm text-white;
@@ -19,7 +19,7 @@
     @apply text-sm text-white;
   }
   p {
-    @apply text-xs text-white;
+    @apply text-sm text-white;
   }
 }
 
