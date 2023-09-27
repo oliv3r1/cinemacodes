@@ -16,7 +16,7 @@
     @apply text-sm text-white;
   }
   a {
-    @apply text-sm text-white;
+    @apply text-white;
   }
   p {
     @apply text-sm text-white;
